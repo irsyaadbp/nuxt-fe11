@@ -1,5 +1,6 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <BaseButton primary> Ngiuy </BaseButton>
+    
   </div>
 </template>
