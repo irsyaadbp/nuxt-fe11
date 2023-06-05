@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import "~/assets/styles/button.css";
+import "~/assets/styles/button.scss";
 
 const props = defineProps({
   primary: {
