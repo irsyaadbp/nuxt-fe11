@@ -12,10 +12,18 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   modules: [
-    async (_options, nuxt) => {
-      nuxt.hooks.hook("vite:extendConfig", (config) => {
-        config.plugins?.push(vuetify());
-      });
-    },
+    [
+      "@pinia/nuxt",
+      {
+        autoImports: ["defineStore", "storeToRefs"],
+      },
+    ],
   ],
+  // modules: [
+  //   async (_options, nuxt) => {
+  //     nuxt.hooks.hook("vite:extendConfig", (config) => {
+  //       config.plugins?.push(vuetify());
+  //     });
+  //   },
+  // ],
 });

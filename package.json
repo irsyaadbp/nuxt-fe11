@@ -24,9 +24,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.62.1",
-    "storybook": "^7.0.18"
+    "storybook": "^7.0.18",
+    "storybook-addon-nuxt": "^1.3.0",
+    "storybook-addon-vuetify3": "^2.0.5"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
+    "pinia": "^2.1.3",
     "vite-plugin-vuetify": "^1.0.2",
     "vuetify": "^3.3.2"
   }
