@@ -1,5 +1,8 @@
 import BaseCard from "../components/BaseCard.vue";
 import type { Meta, StoryObj } from "@storybook/vue3";
+import { computed } from "vue";
+
+const allSlots = ["default"];
 
 const meta: Meta<typeof BaseCard> = {
   /* 👇 The title prop is optional.
@@ -14,12 +17,24 @@ const meta: Meta<typeof BaseCard> = {
       components: {
         BaseCard,
       },
-      // setup() {
-      //   return { args };
-      // },
+      setup() {
+        const props = computed(() =>
+          Object.fromEntries(
+            Object.entries(args).filter(([key]) => !allSlots.includes(key))
+          )
+        );
+        const slots = computed(() =>
+          Object.fromEntries(
+            Object.entries(args).filter(([key]) => allSlots.includes(key))
+          )
+        );
+        return { props, slots, args };
+      },
       template: `
-      <base-card v-bind="$props">
-        <template v-if="${"default" in args}" v-slot>${args.default}</template>
+      <base-card v-bind="props">
+        <template v-for="(slot, nameSlot) in slots" :name="nameSlot">
+          <div v-html="slot"></div>
+        </template>
       </base-card>
       `,
     };
@@ -30,8 +45,8 @@ const meta: Meta<typeof BaseCard> = {
     },
   },
   args: {
-    default: "Slot Default"
-  }
+    default: "Slot Default",
+  },
 };
 
 export default meta;
