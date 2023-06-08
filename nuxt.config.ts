@@ -18,12 +18,10 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "storeToRefs"],
       },
     ],
+    async (_options, nuxt) => {
+      nuxt.hooks.hook("vite:extendConfig", (config) => {
+        config.plugins?.push(vuetify());
+      });
+    },
   ],
-  // modules: [
-  //   async (_options, nuxt) => {
-  //     nuxt.hooks.hook("vite:extendConfig", (config) => {
-  //       config.plugins?.push(vuetify());
-  //     });
-  //   },
-  // ],
 });

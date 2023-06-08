@@ -5,8 +5,7 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    // "storybook-addon-nuxt",
-    // "storybook-addon-vuetify3",
+    // "storybook-addon-nuxt", //dont open this if you use vuetify, but absolute path import not working
   ],
   framework: {
     name: "@storybook/vue3-vite",
